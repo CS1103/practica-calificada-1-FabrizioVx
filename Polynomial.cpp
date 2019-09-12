@@ -26,7 +26,6 @@ Polynomial::~Polynomial() {
 
 
 Polynomial &Polynomial::operator+(const Polynomial &right) {
-
     polinom->coeficiente = right.polinom->coeficiente + polinom->coeficiente;
     return *this;
 }
@@ -44,7 +43,9 @@ Polynomial &Polynomial::operator=(const Polynomial &r) {
 }
 
 Polynomial::Polynomial(int) {
+}
 
+Polynomial &Polynomial::operator+(int nu) {
 }
 
 

@@ -6,6 +6,7 @@
 #define POLINOMIO_POLINOMIO_H
 
 #include <vector>
+#include <iostream>
 #include <cstddef>
 using namespace std;
 
@@ -31,7 +32,7 @@ public:
     Polynomial &operator+(const Polynomial&);
     Polynomial &operator=(const Polynomial&);
     Polynomial &operator+=(const Polynomial&);
-
+    Polynomial &operator+( int );
 
     Polynomial (int);
 
