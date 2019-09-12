@@ -26,7 +26,7 @@ private:
 
 public:
     Polynomial();
-    size_t add(size_t c ,size_t e);
+    void add(size_t c ,size_t e);
 
 
     Polynomial &operator+(const Polynomial&);
