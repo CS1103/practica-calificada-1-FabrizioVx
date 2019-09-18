@@ -6,48 +6,52 @@
 #include <iostream>
 #include "Polynomial.h"
 
+#include "Polynomial.h"
 Polynomial::Polynomial() {
-    polinom = nullptr;
+    head = nullptr;
+    tail = nullptr;
 }
 
-void Polynomial::add(size_t c, size_t e) {
-    auto* numerito =new numero;
-    for(int i = 0; i< e;i++){
-        numerito->coeficiente = c;
-        numerito->grado = e;
-        numerito->next = polinom;
+void Polynomial::add(int coeficiente, int grado) {
+    numero *auxiliar = new numero;
+    auxiliar->coeficiente = coeficiente;
+    auxiliar->grado = grado;
+
+    auxiliar->next = head;
+    head = auxiliar;
+}
+
+void Polynomial::imprimir() {
+    numero *dt = head;
+    while(dt != nullptr){
+        cout<<dt->coeficiente<<"x^"<<dt->grado<<"+";
+        dt = dt->next;
     }
-        polinom = numerito;
 }
-
-Polynomial::~Polynomial() {
-
-}
-
-
-Polynomial &Polynomial::operator+(const Polynomial &right) {
-    polinom->coeficiente = right.polinom->coeficiente + polinom->coeficiente;
-    return *this;
-}
-
 
 ostream &operator<<(ostream &out, const Polynomial &n) {
-    out << n.polinom;
+    out <<n.head->coeficiente <<"x^"<< n.head->grado<<std::showpos;
     return out;
-
 }
 
-Polynomial &Polynomial::operator=(const Polynomial &r) {
-    polinom = r.polinom;
+
+Polynomial &Polynomial::operator=(const Polynomial &n) {
+    head->grado = n.head->grado;
+    head->coeficiente = n.head->grado;
     return *this;
 }
 
-Polynomial::Polynomial(int) {
-}
+Polynomial &Polynomial::operator+(const Polynomial &p) {
+    numero *dt = head;
+    while(dt != nullptr) {
+        if (head->grado == p.head->grado) {
+            head->coeficiente += p.head->coeficiente;
+        }
+        dt = dt->next;
+    }
+    return *this;
 
-Polynomial &Polynomial::operator+(int nu) {
 }
-
 
 size_t Polynomial::degree() {
     Polynomial num1,num2,num3;

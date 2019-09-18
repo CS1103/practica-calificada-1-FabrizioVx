@@ -23,6 +23,8 @@ private:
     //numero *head;
     //numero *tail;
     numero *polinom;
+    numero *head;
+    numero *tail;
 
 public:
     Polynomial();
@@ -33,6 +35,8 @@ public:
     Polynomial &operator=(const Polynomial&);
     Polynomial &operator+=(const Polynomial&);
     Polynomial &operator+( int );
+    void imprimir();
+    void add(int,int);
 
     Polynomial (int);
 
